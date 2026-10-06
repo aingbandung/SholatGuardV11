@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#8dd2b7">
+<title>SholatGuard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1024 1024%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%238fe0bf%22/%3E%3Cstop offset=%221%22 stop-color=%22%236fb4e6%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%221024%22 height=%221024%22 rx=%22230%22 fill=%22url%28%23g%29%22/%3E%3Cg transform=%22translate%28512 512%29 scale%280.92%29 translate%28-512 -512%29%22%3E%3Cg%3E%0A%3Cpath d=%22M512 150 L806 262 V520 C806 706 684 836 512 906 C340 836 218 706 218 520 V262 Z%22 fill=%22%23fff%22/%3E%0A%3Cg transform=%22translate%28300 232%29 scale%288%29%22 fill=%22none%22 stroke=%22%230d4a3f%22 stroke-width=%223.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2239%22 cy=%2216%22 r=%224.2%22 fill=%22%230d4a3f%22/%3E%3Cpath d=%22M14 24v20M14 24l20-4M32 21l-10 13%22/%3E%3C/g%3E%0A%3Cg fill=%22%230d4a3f%22%3E%3Ccircle cx=%22392%22 cy=%22770%22 r=%2224%22/%3E%3Ccircle cx=%22472%22 cy=%22770%22 r=%2224%22/%3E%3Ccircle cx=%22552%22 cy=%22770%22 r=%2224%22/%3E%3Ccircle cx=%22632%22 cy=%22770%22 r=%2220%22 fill=%22none%22 stroke=%22%230d4a3f%22 stroke-width=%229%22/%3E%3C/g%3E%0A%3C/g%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script src="cap-core.js"></script>
+<script src="sg-native.js"></script>
+<script>if(window.Capacitor||/^https?:\/\/localhost/.test(location.href))window.PC_VENDOR={dir:"./vendor"}; // APK: model & MediaPipe dimuat offline dari ./vendor</script>
+
+<script>(function(){var t="auto";try{t=localStorage.getItem("pc_theme")||"auto"}catch(e){}var d=t==="dark"||(t==="auto"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=d?"dark":"light"})()</script>
+<style>
+:root{color-scheme:light;--bg1:#e6f1fa;--bg2:#e4f6ee;--card:#fff;--soft:#e4f2ed;--soft2:#f3faf7;--mint:#9ad9c1;--onm:#0d4a3f;--go:#a5dcc6;--dk:#0d4a3f;--tx:#0e3b34;--mu:#5d7d76;--ac:#f0c24b;--ln:#dbe9e5;--teal:#0b8a7d;--track:#e1eef2;--track2:#d3e8ef;--pg:#0d4a3f;--chip:#eef3f5;--chipt:#6b8a85;--hd1:#98d9c0;--hd2:#8dd2b7;--m1b:#dfe4e6;--m1t:#4b5e5a;--rsb:#0d4a3f;--rst:#fff;--navt:#6b8a85;--c1:#e2f6ec;--c2:#cfe6f4;--sh:rgba(13,74,63,.06)}
+:root[data-theme=dark]{color-scheme:dark;--bg1:#0a1412;--bg2:#0d1d19;--card:#12231f;--soft:#1c3832;--soft2:#17302a;--mint:#2f8a72;--onm:#fff;--go:#2f8a72;--dk:#c4eddf;--tx:#e3f1ec;--mu:#8fb0a6;--ln:#24403a;--teal:#52d1bb;--track:#23403a;--track2:#2b4a43;--pg:#8fe0bf;--chip:#223b35;--chipt:#8fb0a6;--hd1:#1f5a4c;--hd2:#1a4d41;--m1b:#2a3b38;--m1t:#b9cdc8;--rsb:#cdeee0;--rst:#0d3a31;--navt:#8fb0a6;--c1:#1b3a33;--c2:#1b3340;--sh:rgba(0,0,0,.4)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tx);background:linear-gradient(135deg,var(--bg1),var(--bg2)) fixed;transition:background .3s;min-height:100vh}
+#app{display:flex;flex-direction:column;max-width:480px;margin:0 auto;min-height:100vh}
+button,select{font:inherit;font-size:14px;border:0;border-radius:12px;padding:10px 12px;background:var(--soft);color:var(--dk)}
+button:active{filter:brightness(.94)}button.p{background:var(--mint);color:var(--onm);font-weight:600}
+.mu{color:var(--mu);font-size:13px}.sm{font-size:12px;color:var(--mu)}
+header{order:0;background:linear-gradient(180deg,var(--hd1),var(--hd2));color:#fff;text-align:center;padding:max(16px,env(safe-area-inset-top)) 16px 42px;position:relative}
+header h1{margin:0;font-size:24px;letter-spacing:.3px}header p{margin:2px 0 0;font-size:12px;opacity:.92}
+#mn,#thb{position:absolute;right:8px;top:max(10px,env(safe-area-inset-top));background:none;color:#fff;padding:8px}
+#thb{right:auto;left:8px}#mn svg,#thb svg{width:24px;height:24px;stroke:#fff;stroke-width:2;stroke-linecap:round}
+.tab{display:none;order:2;position:relative;z-index:1;background:var(--card);margin-top:-24px;border-radius:28px 28px 0 0;padding:20px 18px 96px;flex:1;box-shadow:0 -6px 24px var(--sh)}
+body[data-tab=today] #tToday,body[data-tab=history] #tHistory,body[data-tab=guide] #tGuide,body[data-tab=profile] #tProfile{display:block}
+body.cam[data-tab=today]:not(.on) .tab{margin-top:12px}
+h2{margin:0 0 10px;font-size:18px;color:var(--dk)}
+/* camera preview (setup) */
+.vid{order:1;position:relative;display:none;aspect-ratio:4/3;width:calc(100% - 28px);margin:-26px 14px 0;z-index:2;background:#0b1f1b;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(13,74,63,.2)}
+video,canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+body.cam .vid{display:block}
+body.cam:not([data-tab=today]) .vid,body.cam.on .vid{position:fixed;left:0;top:0;width:2px;height:2px;aspect-ratio:auto;opacity:.01;pointer-events:none;margin:0}
+#sw{position:absolute;right:8px;top:8px;z-index:3;background:rgba(0,0,0,.45);color:#fff;padding:6px 10px;font-size:12px}
+/* today */
+.dl{text-align:center;font-size:12px;color:var(--mu)}
+.pick{position:relative;display:flex;justify-content:center;align-items:center;gap:6px;margin:4px 0 2px}
+.pick .ttl{font-size:22px;font-weight:800;letter-spacing:1.5px;color:var(--dk);transition:color .3s}.ttl.flash{color:var(--teal)}
+.pick svg{width:16px;height:16px;stroke:var(--dk);fill:none;stroke-width:2.5;stroke-linecap:round}
+.pick select{position:absolute;inset:0;width:100%;height:100%;opacity:0;font-size:16px}
+#warn{display:none;background:#c62828;color:#fff;border-radius:12px;padding:10px 12px;margin:8px 0;font-weight:600;font-size:14px;text-align:center}
+.ring{position:relative;width:min(62vw,232px);aspect-ratio:1;margin:8px auto 0}
+.ring>svg{position:absolute;inset:0;width:100%;height:100%}#ringP{transition:stroke-dashoffset .6s ease}
+.ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.num{font-size:clamp(40px,14vw,56px);font-weight:800;line-height:1;color:var(--dk)}.num span{font-size:.9em}
+.lb{font-weight:800;letter-spacing:1px;font-size:15px;color:var(--dk);margin-top:2px}
+.chip{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;font:700 10px/22px system-ui;font-style:normal;text-align:center;background:var(--chip);color:var(--chipt);border:2px solid var(--card);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.chip.done{background:var(--mint);color:var(--dk)}.chip.cur{background:var(--card);border-color:var(--dk);color:var(--dk);animation:pl 1.4s infinite}
+@keyframes pl{50%{box-shadow:0 0 0 6px rgba(13,74,63,.12)}}
+.minis{display:flex;justify-content:center;gap:30px;margin:14px 0 2px}.mini{text-align:center;width:128px;line-height:1.25}
+.mini b{display:block;font-size:15px;letter-spacing:.5px;color:var(--dk)}.mini small{color:var(--mu);font-size:12px}
+.mr{position:relative;width:68px;height:68px;margin:0 auto 6px;border-radius:50%;color:var(--dk);transition:box-shadow .3s}
+.mr .r{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}.mr .r circle:last-child{transition:stroke-dashoffset .5s}
+.ring .t1{stroke:var(--track)}.ring .t2{stroke:var(--track2)}.r .tr{stroke:var(--track)}.r .pg{stroke:var(--pg)}.mr.s .r .pg{stroke:#7bbfe8}.mr.act{box-shadow:0 0 0 6px rgba(154,217,193,.4)}
+.ic{stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.mr .ic{position:absolute;inset:15px;width:38px;height:38px}
+.state{text-align:center;margin-top:10px}.k{font-size:11px;letter-spacing:1.3px;color:var(--mu);font-weight:700}#st{font-size:17px;font-weight:700;margin-top:2px}
+.act{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
+.act button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:11px 4px;border-radius:14px;font-weight:600;font-size:13px}
+.act svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#go{background:var(--go);color:var(--onm)}#m1{background:var(--m1b);color:var(--m1t)}#rs{background:var(--rsb);color:var(--rst)}
+#qn{display:none;direction:rtl;text-align:center;white-space:pre-line;background:#0d3a31;color:#eaf6f1;border-radius:14px;padding:12px;margin-top:12px;font-size:20px;line-height:2;max-height:220px;overflow:auto}
+#fr{display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;white-space:pre-line;min-height:30vh;margin:12px 0;padding:14px;background:#0d3a31;border-radius:18px;color:#fff}
+#frA{font-size:clamp(34px,11vw,72px);font-weight:800;color:var(--ac);line-height:1.1}#frB{font-size:clamp(24px,8vw,48px);font-weight:700;margin-top:10px}
+body.front #fr{display:flex}body.front .minis{display:none}body.front .ring{width:min(44vw,160px)}
+body.front #warn{position:fixed;left:12px;right:12px;top:12px;z-index:9;font-size:24px}
+.frontonly{display:none}body.front .frontonly{display:block}
+/* history */
+.hi{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--ln)}
+.hi span{display:block;font-size:12px;color:var(--mu)}.hr{text-align:right}.hr b{color:var(--teal)}.empty{color:var(--mu);text-align:center;padding:30px 0}
+/* guide */
+details{background:var(--soft2);border-radius:14px;padding:12px 14px;margin:10px 0}summary{font-weight:700;cursor:pointer;color:var(--dk)}
+details p,details li{font-size:14px;line-height:1.55;margin:8px 0 0}details ol,details ul{margin:6px 0 0;padding-left:20px}
+.stg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;margin-top:10px;font-size:12px;color:var(--dk);font-weight:600}
+.stg .ic{width:52px;height:52px;display:block;margin:0 auto 2px;color:var(--dk)}
+.gft{text-align:center;margin:18px 0 0;font-size:12px;color:var(--mu)}
+/* profile */
+.fld{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--ln);font-size:14px}
+.fld select{max-width:62%}.tg{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+#log{font-size:12px;color:var(--mu);max-height:120px;overflow:auto;margin-top:6px}#pcDbg{font-size:11px;color:var(--mu);margin-top:6px}
+/* nav */
+#nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:480px;display:flex;background:var(--card);border-top:1px solid var(--ln);z-index:20;padding-bottom:env(safe-area-inset-bottom)}
+#nav button{flex:1;background:none;border-radius:0;padding:8px 0 7px;color:var(--navt);font-size:11px;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative}
+#nav button.on{color:var(--teal);font-weight:600}#nav button.on::before{content:"";position:absolute;top:-1px;left:22%;right:22%;height:3px;border-radius:0 0 3px 3px;background:var(--teal)}
+#nav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* calibration overlay (front view) */
+#cal{display:none;position:fixed;inset:0;z-index:30;background:transparent;pointer-events:none;align-items:flex-start;justify-content:center;text-align:center;padding:10px;color:#e8f3ee}
+#cal>div{pointer-events:auto;background:rgba(11,42,34,.86);border-radius:16px;padding:12px}#cal.on{display:flex}#cal .mu{color:#a8c9bf}#cal input{color:#fff}
+body.calib .vid.vid{position:fixed;inset:0;left:0;top:0;width:100%;height:100%;aspect-ratio:auto;margin:0;border-radius:0;z-index:25;opacity:1;pointer-events:none;display:block}
+body.calib .vid video,body.calib .vid canvas{width:100%;height:100%;object-fit:contain}
+</style></head><body data-tab="today">
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="i-stand" viewBox="0 0 48 48"><circle cx="24" cy="8" r="4"/><path d="M24 12v16M24 28l-5 16M24 28l5 16M24 16l-7 8M24 16l7 8"/></symbol>
+<symbol id="i-ruku" viewBox="0 0 48 48"><circle cx="39" cy="16" r="4"/><path d="M14 24v20M14 24l20-4M32 21l-10 13"/></symbol>
+<symbol id="i-sujud" viewBox="0 0 48 48"><circle cx="36" cy="38" r="3.5"/><path d="M8 42l14-2M22 40l-8-12M14 28l16 6M30 34l5 8"/></symbol>
+<symbol id="i-sit" viewBox="0 0 48 48"><circle cx="22" cy="12" r="4"/><path d="M22 16v14M22 30l12 6M34 36L14 42M22 20l8 8"/></symbol>
+</defs></svg>
+<div id="app">
+<header><button id="thb" aria-label="Theme"><svg viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></svg></button><button id="mn" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<h1>SholatGuard</h1><p>Created by <b>Firdaus F</b></p></header>
+<div class="vid"><video id="v" playsinline muted></video><canvas id="c"></canvas><button id="sw">⟲ Flip</button></div>
+
+<section id="tToday" class="tab">
+ <div class="dl" id="dt"></div>
+ <div class="pick"><span id="pn" class="ttl">SALAT ZUHUR</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+  <select id="pr" aria-label="Prayer type"><option value="2">Subuh (2)</option><option value="4">Zuhur (4)</option><option value="4">Asar (4)</option><option value="3">Magrib (3)</option><option value="4">Isya (4)</option><option value="2">Sunah (2)</option></select></div>
+ <div id="warn"></div>
+ <div class="ring"><svg viewBox="0 0 220 220"><defs><linearGradient id="gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fe0bf"/><stop offset="1" stop-color="#7bbfe8"/></linearGradient><radialGradient id="gs"><stop offset="0" style="stop-color:var(--c1)"/><stop offset="1" style="stop-color:var(--c2)"/></radialGradient></defs>
+  <circle cx="110" cy="110" r="106" fill="none" class="t2" stroke-width="2"/><circle cx="110" cy="110" r="70" fill="url(#gs)"/>
+  <circle cx="110" cy="110" r="88" fill="none" class="t1" stroke-width="12"/>
+  <circle id="ringP" cx="110" cy="110" r="88" fill="none" stroke="url(#gr)" stroke-width="12" stroke-linecap="round" stroke-dasharray="552.92" stroke-dashoffset="552.92" transform="rotate(-90 110 110)"/></svg>
+  <div id="chips"></div>
+  <div class="ctr"><div class="num"><b id="rk">0</b><span>/<span id="tg">4</span></span></div><div class="lb">RAKAAT</div><div id="cr" class="sm">Ready</div></div></div>
+ <div id="fr"><div id="frA"></div><div id="frB"></div></div>
+ <div class="minis">
+  <div class="mini"><div class="mr" id="mR"><svg class="r" viewBox="0 0 68 68"><circle cx="34" cy="34" r="27" fill="none" class="tr" stroke-width="5"/><circle id="rkP" cx="34" cy="34" r="27" fill="none" class="pg" stroke-width="5" stroke-linecap="round" stroke-dasharray="169.65" stroke-dashoffset="169.65"/></svg><svg class="ic" viewBox="0 0 48 48"><use href="#i-ruku"/></svg></div><b>RUKU</b><small>Bowing · <span id="ru">0</span>/<span id="rt">4</span></small></div>
+  <div class="mini"><div class="mr s" id="mS"><svg class="r" viewBox="0 0 68 68"><circle cx="34" cy="34" r="27" fill="none" class="tr" stroke-width="5"/><circle id="sjP" cx="34" cy="34" r="27" fill="none" class="pg" stroke-width="5" stroke-linecap="round" stroke-dasharray="169.65" stroke-dashoffset="169.65"/></svg><svg class="ic" viewBox="0 0 48 48"><use href="#i-sujud"/></svg></div><b>SUJUD</b><small>Prostration · <span id="su">0</span>/<span id="stt">8</span></small></div>
+ </div>
+ <div id="qn"></div>
+ <div class="state"><div class="k">CURRENT STATE</div><div id="st">—</div><div id="tm" class="sm">⏱ 0:00</div></div>
+ <div class="act">
+  <button id="go"><svg viewBox="0 0 24 24"><path d="M7 5l12 7-12 7z"/></svg><span id="goT">Start Prayer</span></button>
+  <button id="m1"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>+1 Rakaat</button>
+  <button id="rs"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 9l6 6M15 9l-6 6"/></svg>End Prayer</button>
+ </div>
+</section>
+
+<section id="tHistory" class="tab"><h2>History</h2>
+ <div class="mu" id="hSum"></div><div id="hList"></div>
+ <p style="text-align:center"><button id="hClr">Clear history</button></p></section>
+
+<section id="tGuide" class="tab"><h2>Guide</h2>
+<details open><summary>Mulai cepat</summary><ol>
+<li>Pilih jenis salat dengan mengetuk judul di layar <b>Today</b> (Subuh, Zuhur, Asar, Magrib, Isya, Sunah).</li>
+<li>Letakkan HP sekitar 2 m dari Anda (lihat <i>Posisi HP</i>), lalu ketuk <b>Start Prayer</b> dan izinkan kamera.</li>
+<li>Berdiri tegak dan <b>angkat kedua tangan (takbir)</b>. Hitungan dimulai saat itu. Jika tangan tidak terbaca, ketuk <b>Begin now</b>.</li>
+<li>Salat seperti biasa. Aplikasi menyebut tiap gerakan (mis. “Rukuk pertama, rakaat pertama”), menghitung rakaat, dan memperingatkan jika ada yang terlewat.</li>
+<li>Setelah rakaat lengkap, duduk tahiyat akhir dan salam. Saat Anda berdiri, layar menampilkan <b>Prayer complete</b> dan salat tersimpan di History.</li></ol></details>
+<details><summary>Posisi HP</summary>
+<p><b>Tampak samping (disarankan):</b> berdirikan HP di sisi badan Anda, jarak ±2 m, setinggi pinggang–dada, seluruh badan dari kepala sampai kaki terlihat, cahaya cukup, latar tidak ramai.</p>
+<p><b>Tampak depan:</b> layar menghadap Anda (kamera depan). Lakukan <b>Kalibrasi</b> sekali di tab Profile (4 posisi: berdiri, rukuk, sujud, duduk). Layar akan menampilkan tulisan besar urutan gerakan.</p></details>
+<details><summary>Gerakan yang dikenali</summary>
+<div class="stg"><div><svg class="ic" viewBox="0 0 48 48"><use href="#i-stand"/></svg>Qiyam</div><div><svg class="ic" viewBox="0 0 48 48"><use href="#i-ruku"/></svg>Rukuk</div><div><svg class="ic" viewBox="0 0 48 48"><use href="#i-sujud"/></svg>Sujud</div><div><svg class="ic" viewBox="0 0 48 48"><use href="#i-sit"/></svg>Duduk</div></div>
+<p>Gerakan turun dari rukuk ke sujud (yang mirip duduk) tidak dihitung. Rakaat dihitung setelah sujud kedua.</p></details>
+<details><summary>Pengingat & peringatan</summary><ul>
+<li>Rukuk terlewat pada suatu rakaat.</li><li>Baru satu sujud lalu berdiri.</li><li>Tahiyat awal terlewat (salat 3 atau 4 rakaat).</li><li>Duduk lebih dari 5 detik di tempat yang tidak semestinya.</li>
+<li>Setelah rakaat lengkap dan Anda berdiri, tidak ada peringatan lagi.</li></ul>
+<p>Di tab Profile Anda bisa memilih pengingat <i>setiap gerakan</i> atau <i>hanya saat salah</i>.</p></details>
+<details><summary>Qunut</summary><p>Saat berdiri, angkat kedua tangan ke depan setinggi dada (telapak ke atas) dan tahan sekitar 1,5–2 detik. Doa qunut dibacakan dan teksnya tampil di layar; berhenti sendiri setelah doa selesai. Bisa dimatikan di tab Profile.</p></details>
+<details><summary>Perintah suara</summary><p>Aktifkan <b>Voice cmd</b> di tab Profile (Chrome, perlu internet), lalu ucapkan nama salat sebelum takbir: “Subuh”, “Zuhur”, “Asar”, “Magrib”, “Isya” atau “Sunah”. Pilihan di layar akan berganti.</p></details>
+<details><summary>Sensitivity & koreksi</summary><p>Slider di tab Profile: nilai tinggi bereaksi lebih cepat tetapi lebih mudah salah deteksi; nilai rendah lebih stabil. Jika hitungan keliru, gunakan <b>+1 Rakaat</b> di layar Today atau <b>−1 Rakaat</b> di Profile.</p></details>
+<details><summary>Masalah umum</summary><ul>
+<li><b>Kamera ditolak / diblokir:</b> aplikasi harus dibuka lewat alamat HTTPS dan kamera diizinkan untuk situs ini.</li>
+<li><b>Model gagal dimuat:</b> periksa koneksi internet.</li>
+<li><b>Gerakan sering salah:</b> mundur sedikit agar seluruh badan terlihat, tambah cahaya, atau turunkan Sensitivity.</li></ul></details>
+<details><summary>Privasi</summary><p>Video diproses langsung di HP Anda dan tidak diunggah. Riwayat salat disimpan hanya di perangkat ini.</p></details>
+<p class="gft">SholatGuard · Created by Firdaus F</p></section>
+
+<section id="tProfile" class="tab"><h2>Profile & Settings</h2>
+ <div class="fld"><span>Theme</span><select id="th"><option value="auto">Auto (system)</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+ <div class="fld"><span>Camera view</span><select id="vm"><option value="side">📷 Tampak samping</option><option value="front">📱 Tampak depan</option></select></div>
+ <div class="fld"><span>Language</span><select id="lg"><option value="id">Bahasa Indonesia</option><option value="en">English</option><option value="ar">العربية</option></select></div>
+ <div class="fld"><span>Reminders</span><select id="rm"><option value="all">Setiap gerakan</option><option value="err">Hanya saat salah</option></select></div>
+ <div class="fld"><span>Voice type</span><select id="vg"><option value="m">👨 Pria dewasa</option><option value="f">👩 Wanita</option></select></div>
+ <div class="fld"><span>Voice list</span><select id="vs"><option value="">Otomatis</option></select></div>
+ <div id="vsInfo" class="mu" style="margin:-4px 0 8px;font-size:13px"></div>
+ <div class="fld"><span>Voice qunut (Arab)</span><select id="vsq"><option value="">Otomatis</option></select></div>
+ <div id="vsqInfo" class="mu" style="margin:-4px 0 8px;font-size:13px"></div>
+ <div class="tg"><button id="vsCfg" style="display:none">⚙ Pengaturan suara</button></div>
+ <div class="tg"><button id="vo">🔊 Voice on</button><button id="qt">Qunut: off</button><button id="pcMic">🎤 Voice cmd: off</button></div>
+ <div class="fld"><span>Sensitivity</span><span style="display:flex;gap:8px;align-items:center;flex:1;justify-content:flex-end"><input id="pcSens" type="range" min="1" max="10" step="1" value="5" style="max-width:150px"><b id="pcSensVal">5</b></span></div>
+ <div class="fld"><span>Model pose</span><select id="mdl"><option value="full">Akurat (Full)</option><option value="lite">Cepat (Lite)</option></select></div>
+ <div class="mu" style="margin:-4px 0 8px;font-size:13px">Full lebih akurat untuk posisi duduk/sujud, sedikit lebih berat. Berlaku setelah aplikasi dibuka ulang.</div>
+ <div class="frontonly"><div class="fld"><span>Front-view profile</span><select id="pf"></select></div>
+  <div class="tg"><button id="pfCal">🎯 Kalibrasi</button><button id="pfDel">🗑 Hapus profil</button></div>
+  <div class="fld"><span>Pakai data</span><select id="pfMode"></select></div>
+  <div id="pfInfo" class="mu"></div><div id="pfRuns"></div></div>
+ <div class="tg"><button id="m2">− 1 Rakaat (koreksi)</button></div>
+ <details><summary>Debug & log</summary><div id="pcDbg"></div><div id="log"></div></details>
+ <p class="gft">SholatGuard · Created by Firdaus F</p></section>
+
+<nav id="nav">
+ <button data-t="today" class="on"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Today</button>
+ <button data-t="history"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>History</button>
+ <button data-t="guide"><svg viewBox="0 0 24 24"><path d="M4 5.5C6 4.5 9 4.5 12 6c3-1.5 6-1.5 8-.5V19c-2-1-5-1-8 .5-3-1.5-6-1.5-8-.5z"/><path d="M12 6v13.5"/></svg>Guide</button>
+ <button data-t="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-4 3.8-5.5 7-5.5s6.2 1.5 7 5.5"/></svg>Profile</button>
+</nav>
+</div>
+<div id="cal"><div style="max-width:520px;width:100%">
+ <div id="calS">
+  <h2 style="margin:0 0 8px">🎯 Kalibrasi tampak depan</h2>
+  <p class="mu" style="margin:0 0 10px">Berdirikan HP di depan Anda seperti saat sholat (kamera depan, seluruh badan terlihat, kamera sudah menyala). Aplikasi meminta 4 posisi: berdiri, rukuk, sujud, duduk. Ambil posisi saat hitung mundur, lalu tahan 3 detik. Setiap kalibrasi DITAMBAHKAN ke profil (tidak menimpa). Ulangi beberapa kali di hari/posisi HP berbeda: aplikasi menilai tiap kalibrasi lalu memakai gabungan yang terbaik. Setelah menekan Lanjut, Anda punya waktu mengatur posisi: mulai dengan tombol ▶, ucapan “mulai kalibrasi” (Voice cmd on), atau angkat kedua tangan (takbir) sekitar 1 detik.</p>
+  <input id="calN" maxlength="24" placeholder="Nama profil (mis. Aing)" style="width:100%;font-size:18px;padding:10px;margin-bottom:10px;border-radius:10px;border:1px solid #2a4a40;background:#0f2e26;color:inherit">
+  <div class="row"><button class="p" id="calGo">Lanjut: atur posisi ›</button><button id="calX">Batal</button></div>
+ </div>
+ <div id="calR" style="display:none">
+  <div id="calW" style="display:none;margin-bottom:10px"><p id="calWT" class="mu" style="margin:0 0 12px;font-size:15px"></p><button class="p" id="calStart" style="font-size:20px;padding:14px 20px;width:100%">▶ Mulai kalibrasi</button></div>
+  <div id="calA" style="font-size:clamp(24px,7vw,40px);font-weight:800;color:var(--ac);line-height:1.1"></div>
+  <div id="calB" style="font-size:clamp(32px,10vw,56px);font-weight:800;margin:6px 0"></div>
+  <div style="height:10px;background:#0f2e26;border-radius:6px;overflow:hidden"><div id="calP" style="height:100%;width:0;background:var(--ac)"></div></div>
+  <div id="calV" class="mu" style="margin:10px 0;font-size:13px"></div>
+  <button id="calX2">Batal</button>
+ </div>
+</div></div>
+<script type="module">
+const $=id=>document.getElementById(id);
+const T={
+ id:{stand:"Berdiri",ruku:"Rukuk",itidal:"Iktidal",sujud:"Sujud",sit:"Duduk",rak:n=>`Rakaat ${n} selesai`,done:"Jumlah rakaat sudah lengkap. Duduk tahiyat akhir lalu salam",
+  noRuku:"Peringatan: rukuk terlewat pada rakaat ini",oneSujud:"Peringatan: baru satu sujud. Lakukan sujud kedua",
+  extra:n=>`Peringatan: rakaat sudah ${n}, cukup. Duduk tahiyat akhir`,noTah:"Peringatan: tahiyat awal terlewat. Setelah rakaat kedua harus duduk",
+  badSit:"Peringatan: tidak duduk di sini. Berdiri untuk rakaat berikutnya",tah:"Tahiyat awal",tahF:"Tahiyat akhir. Lalu salam",lang:"id-ID",start:"Sholat dimulai"},
+ en:{stand:"Standing",ruku:"Ruku",itidal:"I'tidal",sujud:"Sujud",sit:"Sitting",rak:n=>`Rak'ah ${n} complete`,done:"Rak'ah count complete. Sit for final tashahhud, then salam",
+  noRuku:"Warning: ruku' was missed in this rak'ah",oneSujud:"Warning: only one sujud so far. Do the second sujud",
+  extra:n=>`Warning: you already finished ${n} rak'ah. Sit for final tashahhud`,noTah:"Warning: first tashahhud missed. Sit after the second rak'ah",
+  badSit:"Warning: do not sit here. Stand for the next rak'ah",tah:"First tashahhud",tahF:"Final tashahhud. Then salam",lang:"en-US",start:"Prayer started"},
+ ar:{stand:"قيام",ruku:"ركوع",itidal:"اعتدال",sujud:"سجود",sit:"جلوس",rak:n=>`ركعة ${n}`,done:"اكتملت الركعات. اجلس للتشهد الأخير ثم سلم",
+  noRuku:"تنبيه: فاتك الركوع",oneSujud:"تنبيه: سجدة واحدة فقط. أتم السجدة الثانية",extra:n=>`تنبيه: أتممت ${n} ركعات. اجلس للتشهد الأخير`,
+  noTah:"تنبيه: فاتك التشهد الأول",badSit:"تنبيه: لا تجلس هنا. قم للركعة التالية",tah:"التشهد الأول",tahF:"التشهد الأخير ثم سلم",lang:"ar-SA",start:"بدأت الصلاة"}
+};
+const L=()=>T[$("lg").value];
+const O={id:{o:["","pertama","kedua","ketiga","keempat","kelima","keenam"],q:"Qunut",r:(a,b)=>`Rukuk ${O.id.o[a]||a}, rakaat ${O.id.o[b]||b}`},
+en:{o:["","first","second","third","fourth","fifth","sixth"],q:"Qunut",r:(a,b)=>`Ruku' ${O.en.o[a]||a}, rak'ah ${b}`},
+ar:{o:["","الأولى","الثانية","الثالثة","الرابعة","الخامسة","السادسة"],q:"قنوت",r:(a,b)=>`ركوع ${a}، الركعة ${O.ar.o[b]||b}`}};
+let voice=true,qSpeak=false,remind="all",badSitT=0;
+try{remind=localStorage.getItem("pc_rm")==="err"?"err":"all"}catch{}
+let vg="m";try{vg=localStorage.getItem("pc_vg")==="f"?"f":"m"}catch{}
+let vv={};try{vv=JSON.parse(localStorage.getItem("pc_vv")||"{}")}catch{}
+const MALE_TAG=/(#male|[-_ ]male\b|\bpria\b|\blaki)/i,FEM_TAG=/(#female|female|wanita|perempuan)/i,
+ MALE_RE=/(andika|hamed|naayf|shakir|david|\bmark\b|george|\bguy\b|ryan|daniel|james|rishi)/i;
+function vlist(lang){try{const pre=(lang||"").slice(0,2).toLowerCase();
+ return((window.speechSynthesis&&speechSynthesis.getVoices&&speechSynthesis.getVoices())||[]).filter(v=>(v.lang||"").toLowerCase().replace("_","-").startsWith(pre))}catch{return[]}}
+function voiceFor(lang){   // 1) suara pilihan pengguna  2) suara yang ditandai pria/wanita oleh mesin  3) tidak ada -> nada diturunkan
+ const c=vlist(lang),pre=(lang||"").slice(0,2).toLowerCase(),pick=vv[pre];
+ if(pick){const v=c.find(x=>x.name===pick);if(v)return{v,manual:true}}
+ const nm=x=>x.name+" "+(x.voiceURI||""),
+  g=vg==="m"?c.find(x=>(MALE_TAG.test(nm(x))||MALE_RE.test(x.name))&&!FEM_TAG.test(nm(x))):c.find(x=>FEM_TAG.test(nm(x)));
+ return{v:g||null,manual:false}}
+function applyVoice(u){
+ const r=voiceFor(u.lang);if(r.v)u.voice=r.v;
+ u.pitch=r.manual||vg!=="m"||r.v?1:.8}   // nada rendah hanya cadangan bila tidak ada suara pria
+function fillVoices(){const sel=$("vs");if(!sel)return;const lang=L().lang,pre=lang.slice(0,2),c=vlist(lang);
+ sel.innerHTML='<option value="">Otomatis (ikuti Voice type)</option>'+c.map(v=>{const n=String(v.name).replace(/"/g,"&quot;");
+  return`<option value="${n}">${MALE_TAG.test(v.name)?"♂ ":FEM_TAG.test(v.name)?"♀ ":""}${v.name}${v.localService===false?" ☁":""}</option>`}).join("");
+ sel.value=c.some(v=>v.name===vv[pre])?vv[pre]:"";
+ const auto=voiceFor(lang);
+ $("vsInfo").textContent=!c.length?"Daftar suara belum tersedia (tunggu sebentar, atau pasang data suara di pengaturan suara).":
+  (vg==="m"&&!auto.manual&&!auto.v)?`${c.length} suara ditemukan, tetapi tidak ada yang ditandai pria. Pilih satu dari daftar sampai terdengar seperti pria (contoh suara diputar).`:`${c.length} suara tersedia. Pilih untuk mendengar contoh. ♂ pria, ♀ wanita (bila ditandai).`}
+function fillArVoices(){const sel=$("vsq");if(!sel)return;const c=vlist("ar");
+ sel.innerHTML='<option value="">Otomatis (ikuti Voice type)</option>'+c.map(v=>{const n=String(v.name).replace(/"/g,"&quot;");
+  return`<option value="${n}">${MALE_TAG.test(v.name+" "+(v.voiceURI||""))?"♂ ":FEM_TAG.test(v.name)?"♀ ":""}${n}${v.localService===false?" ☁":""}</option>`}).join("");
+ sel.value=c.some(v=>v.name===vv.ar)?vv.ar:"";
+ const a=voiceFor("ar");
+ $("vsqInfo").textContent=!c.length?"Belum ada suara Arab. Pasang data suara Arab di pengaturan Text-to-speech HP (Google TTS > Install voice data > Arab).":
+  (vg==="m"&&!a.manual&&!a.v)?`${c.length} suara Arab ditemukan, tidak ada yang ditandai pria. Pilih satu sampai terdengar pria (contoh diputar). Bila semua wanita, nada diturunkan sebagai cadangan.`:`${c.length} suara Arab tersedia.`}
+function say(txt,warn,lang,force){
+ $("log").innerHTML=`${new Date().toLocaleTimeString()} ${warn?"⚠ ":""}${txt}<br>`+$("log").innerHTML;
+ if(warn){$("warn").style.display="block";$("warn").textContent=txt;clearTimeout(say.t);say.t=setTimeout(()=>$("warn").style.display="none",6000);beep()}
+ if(!warn&&!force&&remind==="err")return;   // mode "hanya saat salah": gerakan biasa tidak diucapkan
+ if(!voice||!window.speechSynthesis)return;
+ if(warn||qSpeak){speechSynthesis.cancel();qSpeak=false}
+ const u=new SpeechSynthesisUtterance(txt);u.lang=lang||L().lang;u.rate=1.05;applyVoice(u);speechSynthesis.speak(u);
+}
+function beep(){try{const a=new AudioContext(),o=a.createOscillator();o.connect(a.destination);o.frequency.value=880;o.start();o.stop(a.currentTime+.35)}catch{}}
+$("vo").onclick=()=>{voice=!voice;$("vo").textContent=voice?"🔊 Voice on":"🔇 Voice off";if(voice)say(L().stand,false,null,true)};
+
+/* ---- sequence state ---- */
+let rak=0,ru=0,su=0,sujIn=0,rukuCnt=0,rukuSeen=false,afterSecond=false,cur="",cand="",candN=0,warned={};
+let started=false,takT=0,needLower=false,sens=5,sm=null,dbg={torso:0,knee:0},done=false,fin=false,hinfo={rise:0,fore:0},doneT=0,finT=0,pt0=0,ptE=0,wc=0,saved=false;
+try{sens=+localStorage.getItem("pc_sens")||5}catch{}
+let vm="side",fb=null,fm=null,backT=0,prof=null,cal=null,calTm=0;   // prof: profil kalibrasi aktif; cal: sesi kalibrasi   // vm: "side" | "front"; fb: acuan badan saat berdiri (tampak depan); fm: ukuran badan frame terakhir
+try{vm=localStorage.getItem("pc_vm")==="side"?"side":"front"}catch{}
+const target=()=>+$("pr").value;
+const FR={
+ id:{wait:"Angkat tangan\n(takbir)",fin:"Sholat {n} Selesai ✔",stand1:"Berdiri pertama",stand:"Berdiri",ruku:"Rukuk",itidal:"Iktidal",s1:"Sujud pertama",s2:"Sujud kedua",sit:"Duduk antara dua sujud",tah:"Tahiyat awal",tahF:"Tahiyat akhir",sitx:"Duduk",rk:o=>`rakaat ${o}`},
+ en:{wait:"Raise your hands\n(takbir)",fin:"{n} Prayer Complete ✔",stand1:"First standing",stand:"Standing",ruku:"Ruku'",itidal:"I'tidal",s1:"First sujud",s2:"Second sujud",sit:"Sitting between sujud",tah:"First tashahhud",tahF:"Final tashahhud",sitx:"Sitting",rk:o=>`rak'ah ${o}`},
+ ar:{wait:"ارفع يديك\n(تكبيرة)",fin:"اكتملت صلاة {n} ✔",stand1:"القيام الأول",stand:"قيام",ruku:"ركوع",itidal:"اعتدال",s1:"السجدة الأولى",s2:"السجدة الثانية",sit:"الجلسة بين السجدتين",tah:"التشهد الأول",tahF:"التشهد الأخير",sitx:"جلوس",rk:o=>`الركعة ${o}`}};
+function frText(){   // [gerakan, rakaat] untuk layar tampak depan
+ const g=$("lg").value,F=FR[g],o=O[g].o,t=target(),R=n=>F.rk(o[n]||n);
+ if(!started)return fin?[F.fin.replace("{n}",NAMES[g][$("pr").selectedIndex]||""),""]:[F.wait,""];
+ if(cur==="stand")return[rak===0&&ru===0&&su===0?F.stand1:F.stand,R(rak+1)];
+ if(cur==="ruku")return[F.ruku,R(rak+1)];
+ if(cur==="itidal")return[F.itidal,R(rak+1)];
+ if(cur==="sujud")return afterSecond?[F.s2,R(rak)]:[F.s1,R(rak+1)];
+ if(cur==="sit")return afterSecond?[rak===t?F.tahF:(rak===2&&t>2?F.tah:F.sitx),R(rak)]:[F.sit,R(rak+1)];
+ return["",""]}
+const TABS=["today","history","guide","profile"];
+function showPage(p){const t=({pray:"today",set:"today"})[p]||(TABS.includes(p)?p:"today");document.body.dataset.tab=t;
+ document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.t===t));
+ if(t==="history")renderHist();try{window.scrollTo(0,0)}catch{}ui()}
+function goLabel(){$("goT").textContent=!run?"Start Prayer":(started?"In prayer":"Begin now")}
+function tick(){const e=started?performance.now()-pt0:(ptE&&pt0?ptE-pt0:0),s=Math.floor(e/1000);$("tm").textContent="⏱ "+Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function viz(t,cr){
+ $("ringP").style.strokeDashoffset=552.92*(1-Math.min(1,rak/t));
+ $("chips").innerHTML=Array.from({length:t},(_,i)=>{const n=i+1,a=(-90+n*360/t)*Math.PI/180,x=(110+88*Math.cos(a))/2.2,y=(110+88*Math.sin(a))/2.2,c=rak>=n?"done":(started&&cr===n?"cur":"");return `<i class="chip ${c}" style="left:${x}%;top:${y}%">R${n}</i>`}).join("");
+ $("rkP").style.strokeDashoffset=169.65*(1-Math.min(1,ru/t));$("sjP").style.strokeDashoffset=169.65*(1-Math.min(1,su/(2*t)));
+ $("mR").classList.toggle("act",started&&cur==="ruku");$("mS").classList.toggle("act",started&&cur==="sujud")}
+function ui(){
+ const g=$("lg").value,t=target(),nm=(NAMES[g]||NAMES.id)[Math.max(0,$("pr").selectedIndex)]||"";
+ $("pn").textContent=g==="en"?nm.toUpperCase()+" PRAYER":g==="ar"?nm:"SALAT "+nm.toUpperCase();
+ $("dt").textContent=new Date().toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"short"})+" · "+t+" rakaat";
+ if(vm==="front"){const[a,b]=frText();$("frA").textContent=a;$("frB").textContent=b}
+ const cr=Math.max(1,Math.min(t,started?(afterSecond?rak:rak+1):rak+1));
+ $("rk").textContent=rak;$("tg").textContent=t;$("ru").textContent=ru;$("su").textContent=su;$("rt").textContent=t;$("stt").textContent=2*t;
+ $("cr").textContent=started?`Current: Rakaat ${cr}`:(fin?"Completed":"Ready");
+ let sn={stand:"Qiyam",ruku:"Ruku'",itidal:"I'tidal"}[cur];
+ if(cur==="sujud")sn=afterSecond?"Sujud 2":"Sujud 1";
+ if(cur==="sit")sn=afterSecond?(rak>=t?"Tahiyat akhir":(rak===2&&t>2?"Tahiyat awal":"Duduk")):"Julus";
+ $("st").textContent=started?`Rakaat ${cr}${sn?" · "+sn:""}`:(fin?"✔ Prayer complete":(run?"✋ Raise hands (takbir)":"Tap Start Prayer"));
+ document.body.classList.toggle("on",started);goLabel();viz(t,cr);tick()}
+function warnOnce(k,txt){if(warned[k])return;warned[k]=1;wc++;say(txt,true)}
+function change(s){
+ clearTimeout(badSitT);endQ();const prev=cur,t=target(),w=L();
+ if(s==="ruku"){ru++;rukuSeen=true;rukuCnt++;cur="ruku";say(O[$("lg").value].r(rukuCnt,rak+1))}
+ else if(s==="stand"){
+  if(rak>=t&&(afterSecond||done))return;   // tahiyat akhir: jangan selesai hanya karena terbaca berdiri; tunggu salam (suara / toleh kepala)
+  if(afterSecond){ // standing after 2nd sujud
+   if(rak===2&&t>2&&!warned.tahSeen){warnOnce("tah"+rak,w.noTah)}
+   afterSecond=false;rukuSeen=false;rukuCnt=0;sujIn=0;warned.tahSeen=0;cur="stand";say(w.stand);
+  }else if(prev==="sujud"&&sujIn===1){warnOnce("one"+rak,w.oneSujud);cur="stand"}
+  else{cur=prev==="ruku"?"itidal":"stand";say(cur==="itidal"?w.itidal:w.stand)}
+ }
+ else if(s==="sujud"){
+  if(!rukuSeen&&sujIn===0)warnOnce("nor"+rak,w.noRuku);
+  su++;sujIn++;cur="sujud";say(w.sujud);
+  if(sujIn===2){rak++;sujIn=0;afterSecond=true;say(w.rak(rak));
+   if(rak===t){done=true;clearTimeout(doneT);doneT=setTimeout(()=>{if(done&&started)say(w.done)},1500)}}
+ }
+ else if(s==="sit"){
+  cur="sit";
+  if(afterSecond){
+   if(rak===t)say(w.tahF,false,null,remind!=="err");
+   else if(rak===2&&t>2){warned.tahSeen=1;say(w.tah)}
+   else{clearTimeout(badSitT);const k="bs"+rak;   // peringatan hanya jika masih duduk setelah 5 detik
+    badSitT=setTimeout(()=>{if(run&&started&&cur==="sit")warnOnce(k,L().badSit)},5000)}
+  }else say(w.sit);
+ }
+ ui();
+}
+let standSince=0,yBase=null,yDir=0,yT=0,armT=0,upr=null,upT=0,fbh=null;   // fbh: acuan kepala saat berdiri [y hidung px, jarak mata px]   // upr: badan tegak (true/false/null=tak terbaca); upT: sejak kapan tegak setelah sujud pertama
+const vis=(q,m)=>q&&(q.visibility===undefined||q.visibility>=m);
+function headYaw(p){   // arah hadap kepala dari hidung terhadap telinga (atau mata); skala disamakan dengan yaw bahu (~ -0.5..0.5)
+ const n=p[0];if(!vis(n,.5))return null;
+ const t1=p[7],t2=p[8],e1=p[2],e2=p[5];
+ if(vis(t1,.5)&&vis(t2,.5)){const d=Math.abs(t1.x-t2.x);if(d>.01)return Math.max(-1.5,Math.min(1.5,(n.x-(t1.x+t2.x)/2)/d))*.35}
+ const v1=vis(e1,.5),v2=vis(e2,.5);
+ if(v1&&v2){const d=Math.abs(e1.x-e2.x);if(d>.006)return Math.max(-1.5,Math.min(1.5,(n.x-(e1.x+e2.x)/2)/d))*.3}
+ if(v1!==v2){const e=v1?e1:e2;return(n.x>e.x?1:-1)*.5}   // hanya satu mata terlihat = kepala menoleh jauh
+ return null}
+function yawOf(p){const hy=headYaw(p);if(hy!=null)return hy;const n=p[0],a=p[11],b=p[12];if(!n||!a||!b)return null;
+ if(a.visibility!==undefined&&Math.min(a.visibility,b.visibility)<.4)return null;
+ const sw=Math.abs(a.x-b.x);if(sw<.07)return null;return(n.x-(a.x+b.x)/2)/sw}   // 0 = menghadap kamera; menoleh -> bergeser
+function waitingSalam(){return started&&rak>=target()&&(afterSecond||done)}
+function salamHead(st,y){   // tahiyat akhir (tampak depan): menoleh ke satu sisi lalu sisi lain = salam
+ if(!waitingSalam()){armT=0;yBase=null;yDir=0;return}
+ const now=performance.now();
+ if(st==="sujud"||st==="ruku"||y==null){armT=0;yBase=null;yDir=0;return}
+ if(!armT){armT=now;yBase=y;yDir=0;return}
+ if(now-armT<1500)return;                                   // tunggu duduk stabil dulu
+ const d=y-yBase,thr=.15-(sens-5)*.01;
+ if(Math.abs(d)<thr*.6)yBase+=(y-yBase)*.03;
+ const dir=d>thr?1:d<-thr?-1:0;if(!dir)return;
+ if(!yDir||now-yT>6000){yDir=dir;yT=now}
+ else if(dir!==yDir){yDir=0;yBase=null;armT=0;finish()}}   // dua sisi berbeda = salam
+function onFrame(s){
+ if(!started)return;
+ if(waitingSalam()){   // berdiri terus >12 dtk setelah tahiyat akhir = selesai tanpa salam
+  const now=performance.now();
+  if(s==="stand"){if(!standSince)standSince=now;else if(now-standSince>12000){standSince=0;finish();return}}else if(s==="sit")standSince=0}
+ /* Duduk antara dua sujud singkat dan labelnya sering bergantian null/sujud sehingga tidak pernah stabil. Akibatnya
+    sujud kedua ikut tak terhitung (status masih "sujud"). Jika setelah sujud pertama badan tegak cukup lama
+    (dan bukan terbaca berdiri/rukuk), anggap duduk. */
+ if(cur==="sujud"&&sujIn===1&&!afterSecond&&!done){
+  const tn=performance.now();
+  if(upr&&s!=="stand"&&s!=="ruku"){if(!upT)upT=tn;else if(tn-upT>=Math.max(220,500-sens*40)){upT=0;cand="sit";candN=0;change("sit");return}}
+  else if(upr===false||s==="stand"||s==="ruku")upT=0;
+ }else upT=0;
+ if(done&&s!=="sit"&&s!=="stand")s=null;   // after the last rak'ah only sitting / standing up matter
+ if(s==="sit"&&cur!=="sujud"&&cur!=="sit")s=null;   // sit-like motion while going down to sujud is ignored
+ if(s==="ruku"&&cur!=="stand")s=null;                // ruku only from standing (not while rising from sujud / after i'tidal)
+ if(!s)return;
+ if(s===cand)candN++;else{cand=s;candN=1}
+ const need=s==="sit"?Math.max(2,Math.ceil(S().n/2)):S().n;   // duduk antara sujud singkat: cukup separuh jumlah frame
+ if(candN>=need&&s!==cur&&!(s==="stand"&&cur==="itidal"))change(s)}
+
+/* ---- qunut (hands raised while standing) ---- */
+const QUNUT=`اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ
+وَعَافِنِي فِيمَنْ عَافَيْتَ
+وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ
+وَبَارِكْ لِي فِيمَا أَعْطَيْتَ
+وَقِنِي شَرَّ مَا قَضَيْتَ،
+فَإِنَّكَ تَقْضِي وَلَا يُقْضَى عَلَيْكَ،
+سُبْحَانَكَ رَبَّ الْبَيْتِ
+أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ
+وَأُؤْمِنُ بِكَ وَأَتَوَكَّلُ عَلَيْكَ
+وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِكَ يَا رَحِيمُ.`;
+let qOn=false,handsT=0,lowT=0,lastUp=0,qDone=false,qFin=false,qTok=0;
+function endQ(){qTok++;qDone=false;qFin=false;handsT=0;lowT=0;$("qn").style.display="none";if(qSpeak){speechSynthesis.cancel();qSpeak=false}}
+function startQ(){
+ say(O[$("lg").value].q);
+ $("qn").textContent=QUNUT;$("qn").style.display="block";
+ if(!voice||!window.speechSynthesis)return;
+ const ls=QUNUT.split("\n"),tk=qTok;qSpeak=true;
+ ls.forEach((t,i)=>{const u=new SpeechSynthesisUtterance(t);u.lang="ar-SA";u.rate=.85;applyVoice(u);if(i===ls.length-1)u.onend=()=>{if(tk!==qTok)return;qSpeak=false;qFin=true;$("qn").style.display="none"};speechSynthesis.speak(u)});
+}
+/* side-view qunut: hands are lifted FORWARD (palms up, chest height) and the far arm is hidden, so the old
+   "wrist above shoulder" test misses it. Here we measure, for the best visible arm, how much the wrist rose,
+   reached forward and how much the forearm tilted up, relative to the person's own sedakap baseline. */
+const QB0={h:-.55,f:.15,o:.05};let qBase={...QB0},qScore=0,qMode="front";
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+function qReset(){qBase={...QB0};qScore=0}
+function qunutUp(p,oldUp){
+ if(vm==="front"){qMode="front";qScore=0;return oldUp}
+ const mx=(a,b)=>(p[a].x+p[b].x)/2,my=(a,b)=>(p[a].y+p[b].y)/2;
+ const T=Math.hypot(mx(11,12)-mx(23,24),my(11,12)-my(23,24))+1e-6;
+ const sep=Math.abs(p[11].x-p[12].x)/T,dd=((p[0].x-mx(11,12))+.7*(mx(31,32)-mx(29,30)))/T;
+ const side=sep<.5,dir=Math.abs(dd)>.04?Math.sign(dd):0;
+ qMode=side&&dir?"side":"front";
+ if(qMode==="front"){qScore=0;return oldUp}
+ const thr=.55-(sens-5)*.04;let best=0,bf=null;
+ for(const [sh,el,wr] of [[11,13,15],[12,14,16]]){
+  const vis=p[wr].visibility||0;if(vis<.08)continue;
+  const f={h:(p[sh].y-p[wr].y)/T,o:(p[el].y-p[wr].y)/T,f:(p[wr].x-p[sh].x)*dir/T};
+  let sc=.4*cl((f.h-qBase.h)/.2)+.4*cl((f.f-qBase.f)/.25)+.2*cl((f.o-qBase.o)/.15);
+  if(vis<.4)sc-=.15;   // far arm is noisy: demand more evidence
+  if(sc>best){best=sc;bf=f}
+ }
+ qScore=best;
+ if(bf&&!oldUp&&best<.2&&started&&cur==="stand"){   // slowly learn this person's normal hand position
+  qBase.h=cl(qBase.h+(bf.h-qBase.h)*.03,-.8,-.35);qBase.f=cl(qBase.f+(bf.f-qBase.f)*.03,0,.3);qBase.o=cl(qBase.o+(bf.o-qBase.o)*.03,-.1,.2)}
+ return best>=thr||oldUp}
+function qunut(p,up,qu){
+ if(!started||!qOn||(cur!=="stand"&&cur!=="itidal"))return;
+ const now=performance.now(),sd=qMode==="side";
+ if(needLower){if(!up&&!qu)needLower=false;return}
+ if(qu){lowT=0;lastUp=now;if(!handsT)handsT=now;else if(!qDone&&now-handsT>(sd?1400:2000)){qDone=true;qFin=!(voice&&window.speechSynthesis);startQ()}}
+ else{
+  if(handsT&&!qDone&&now-lastUp>(sd?1200:600))handsT=0;   // tolerate brief detection drop-outs (side view)
+  if(qDone&&qFin){if(!lowT)lowT=now;else if(now-lowT>1000)endQ()}
+ }
+}
+$("qt").onclick=()=>{qOn=!qOn;$("qt").textContent="Qunut: "+(qOn?"on":"off");if(!qOn)endQ()};
+
+/* ---- pose ---- */
+const ang=(a,b,c)=>{const v=[a.x-b.x,a.y-b.y],w=[c.x-b.x,c.y-b.y];return Math.acos((v[0]*w[0]+v[1]*w[1])/(Math.hypot(...v)*Math.hypot(...w)+1e-9))*180/Math.PI};
+const S=()=>({n:Math.max(3,Math.round(11-sens)),d:(sens-5)*2.5});
+function smooth(raw){
+ if(!raw){sm=null;return null}
+ sm=sm&&sm.length===raw.length?raw.map((q,i)=>({x:.6*q.x+.4*sm[i].x,y:.6*q.y+.4*sm[i].y,visibility:q.visibility})):raw.map(q=>({x:q.x,y:q.y,visibility:q.visibility}));
+ return sm}
+function classify(p){
+ const d=S().d,vis=ids=>ids.reduce((s,i)=>s+(p[i].visibility||0),0),A=[11,23,25,27],B=[12,24,26,28];
+ const [s,h,k,a]=(vis(A)>=vis(B)?A:B).map(i=>p[i]),n=p[0];
+ const torso=Math.atan2(Math.abs(s.x-h.x),Math.abs(s.y-h.y)+1e-6)*180/Math.PI,knee=ang(h,k,a);
+ dbg={torso:Math.round(torso),knee:Math.round(knee)};
+ upr=n.y<h.y&&torso<45+d;
+ if(knee<125+d){if(n.y>h.y&&torso>20-d/2)return"sujud";if(n.y<h.y&&torso<40+d)return"sit";return null}
+ if(knee>150-d&&torso<28+d)return"stand";
+ if(knee>140-d&&torso>55-d)return"ruku";
+ return null}
+const STS=["stand","ruku","sujud","sit"],FL=[.12,.12,.2,1,.12],FW=[1,1,1,1.3,.8];   // fitur: tv, kv, hv, dy (turun kepala, satuan jarak mata), ls (log skala kepala)
+const med=A=>{if(!A.length)return NaN;const q=[...A].sort((x,y)=>x-y),h=q.length>>1;return q.length%2?q[h]:(q[h-1]+q[h])/2};
+const f2=x=>Number.isFinite(x)?x.toFixed(2):"–";
+function headFeat(p){   // kepala hampir selalu terbaca walau pinggul/kaki tertutup: posisi hidung & jarak mata (piksel)
+ const v=$("v"),W=v.videoWidth||640,H=v.videoHeight||480,n=p[0],e1=p[2],e2=p[5];
+ if(!vis(n,.5))return null;let hs=null;
+ if(vis(e1,.5)&&vis(e2,.5))hs=Math.hypot((e1.x-e2.x)*W,(e1.y-e2.y)*H);
+ else if(vis(p[7],.5)&&vis(p[8],.5))hs=Math.hypot((p[7].x-p[8].x)*W,(p[7].y-p[8].y)*H)*.45;
+ return{ny:n.y*H,hs:hs>4?hs:null}}
+function relHead(m,B){if(!B||!(B[1]>0)||!Number.isFinite(m.ny))return[NaN,NaN];return[(m.ny-B[0])/B[1],m.hs>0?Math.log(m.hs/B[1]):NaN]}
+function pdist(f,P){let d=0,w=0;for(let i=0;i<5;i++){const x=f[i],mu=P.m[i];if(!Number.isFinite(x)||mu==null)continue;const sd=Math.max(P.s[i]||0,FL[i]),z=(x-mu)/sd;d+=FW[i]*Math.min(z*z,9);w+=FW[i]}return w>=1?Math.sqrt(d/w):1e9}   // z dipotong di 3: satu fitur yang kacau (mis. pinggul salah deteksi) tidak menutup fitur lain
+function clsX(f,st){let b=null,bd=1e9;for(const k of STS){if(!st[k])continue;const d=pdist(f,st[k]);if(d<bd){bd=d;b=k}}return[bd<2.8?b:null,bd]}
+function classifyProfile(m){   // pose terdekat dengan data kalibrasi (jarak z-score berbobot; fitur yang tak terbaca dilewati)
+ const B=fbh||prof.hb||null,r=relHead(m,B),f=[m.tv,m.kvis>.3?m.kv:NaN,m.hv,r[0],r[1]];
+ const[b,bd]=clsX(f,prof.st);dbg.dy=f2(r[0]);dbg.d=f2(bd);return b}
+function headState(m){   // perkiraan hanya dari kepala: dipakai untuk "badan tegak" saat label tubuh tak stabil
+ const B=fbh||(prof&&prof.hb);if(!B)return null;const r=relHead(m,B);if(!Number.isFinite(r[0]))return null;
+ const[b]=clsX([NaN,NaN,NaN,r[0],r[1]],prof.st);return b}
+function classifyFront(p){   // HP di depan pengguna: pakai tinggi badan di gambar, dibandingkan dengan posisi berdiri pengguna sendiri
+ fm=null;upr=null;
+ const v=i=>p[i].visibility||0,hd=headFeat(p),bv=Math.min(v(11),v(12),v(23),v(24))>=.3;
+ if(!bv&&!(prof&&hd))return null;   // dengan profil, kepala saja cukup walau badan tertutup
+ const mx=(a,b)=>(p[a].x+p[b].x)/2,my=(a,b)=>(p[a].y+p[b].y)/2;
+ let m={tv:NaN,kv:NaN,hv:NaN,kvis:0};
+ if(bv){const sw=Math.hypot(p[11].x-p[12].x,p[11].y-p[12].y)+1e-6;
+  m={tv:(my(23,24)-my(11,12))/sw,kv:(my(25,26)-my(23,24))/sw,hv:(my(23,24)-p[0].y)/sw,kvis:(v(25)+v(26))/2}}
+ m.bv=bv;m.ny=hd?hd.ny:NaN;m.hs=hd&&hd.hs?hd.hs:NaN;
+ fm=m;dbg={torso:f2(m.tv),knee:f2(m.kv),hv:f2(m.hv),dy:"–",d:"–"};
+ if(prof){const hs=headState(m);
+  if(hs)upr=hs==="stand"||hs==="sit";
+  else if(bv){const bt=prof.st.stand&&prof.st.stand.m[0]!=null?prof.st.stand.m[0]:(fb?fb.tv:.88);upr=m.tv>.62*bt&&m.hv>.2}
+  return classifyProfile(m)}
+ const bt=fb?fb.tv:.88;upr=m.tv>.62*bt&&m.hv>.2;   // tegak = badan tidak membungkuk & hidung di atas pinggul
+ const b=fb||{tv:1.1,kv:.95},f=fb?1:.8,legs=m.kvis>.3,kr=m.kv/b.kv;
+ if(m.tv>.72*b.tv*f){                      // badan tegak
+  if(!legs)return null;
+  if(kr>.72*f)return"stand";               // paha lurus ke bawah
+  if(kr<.55)return"sit";                   // lutut sejajar pinggul (duduk)
+  return null}
+ if(m.tv<.6*b.tv){                          // badan membungkuk / turun
+  if(m.hv<-.1||(legs&&kr<.7))return"sujud";
+  return"ruku"}
+ return null}
+function handsUp(p){ // checks BOTH arms (side view hides one) and uses forearm lift, not only wrist height
+ const T=Math.abs((p[11].y+p[12].y)/2-(p[23].y+p[24].y)/2)+1e-6,e=(sens-5)*.03;
+ const kA=.18+e,kB=.30+e,f=.15-e*.4;
+ let rise=-9,fore=-9,up=false;
+ for(const [sh,el,wr] of [[11,13,15],[12,14,16]]){
+  if((p[wr].visibility||0)<.15)continue;
+  const r=(p[sh].y-p[wr].y)/T,fo=(p[el].y-p[wr].y)/T;
+  if(r>rise)rise=r;if(fo>fore)fore=fo;
+  if(r>-kA||(r>-kB&&fo>f&&(p[el].visibility||0)>.1))up=true;
+ }
+ hinfo={rise:rise<-8?0:rise,fore:fore<-8?0:fore};
+ return up}
+function beginPrayer(){
+ if(fin||rak>=target()){rak=ru=su=sujIn=rukuCnt=0;rukuSeen=afterSecond=false;warned={}}
+ fb=(vm==="front"&&fm&&fm.kvis>.3&&fm.tv>.8&&fm.kv>.5)?{tv:fm.tv,kv:fm.kv}:null;   // posisi berdiri saat takbir jadi acuan
+ fbh=(vm==="front"&&fm&&fm.hs>0)?[fm.ny,fm.hs]:null;   // kepala saat takbir = acuan "berdiri"
+ qReset();pt0=performance.now();ptE=0;wc=0;saved=false;started=true;cur="stand";cand="stand";candN=0;needLower=true;takT=0;done=false;fin=false;
+ say(L().start,false,null,remind!=="err");showPage("pray");syncMic()}
+function watch(st,up){ // takbir: raise hands while standing -> prayer starts, counting begins
+ if(started)return;
+ const now=performance.now();
+ if(fin&&now-finT<20000){takT=0;return}   // right after salam: raising hands for doa must not start a new prayer
+ if(st==="stand"&&up){if(!takT)takT=now;else if(now-takT>400)beginPrayer()}else takT=0}
+const PF_KEY="pc_profiles",PA_KEY="pc_profile_active",MAXRUN=8;
+function pfMig(o){   // format lama {stand:{m,s,legs},...} -> {runs:[...],use:"auto"}
+ if(!o||typeof o!=="object")return{runs:[],use:"auto"};
+ if(Array.isArray(o.runs))return{runs:o.runs,use:o.use||"auto"};
+ const st={};for(const k of STS){const P=o[k];if(!P)return{runs:[],use:"auto"};
+  st[k]={n:0,m:[P.m[0],P.legs?P.m[1]:null,P.m[2],null,null],s:[P.s[0],P.s[1],P.s[2],null,null],x:[]}}
+ return{runs:[{id:0,t:0,lg:true,st}],use:"auto"}}
+function pfAll(){let o={};try{o=JSON.parse(localStorage.getItem(PF_KEY)||"{}")}catch{}const r={};for(const n in o){const e=pfMig(o[n]);if(e.runs.length)r[n]=e}return r}
+function pfSave(o){try{localStorage.setItem(PF_KEY,JSON.stringify(o))}catch{}}
+function featStats(X){   // median + sd robust (buang pencilan >3.5 MAD); fitur dengan data terlalu sedikit = null
+ const m=[],sd=[];
+ for(let i=0;i<5;i++){const A=X.map(x=>x[i]).filter(Number.isFinite);
+  if(A.length<Math.max(6,X.length*.4)){m.push(null);sd.push(null);continue}
+  const md=med(A),mad=med(A.map(a=>Math.abs(a-md)))*1.4826,K=mad>0?A.filter(a=>Math.abs(a-md)<=3.5*mad):A;
+  m.push(+med(K).toFixed(3));sd.push(+mad.toFixed(3))}
+ return{m,s:sd}}
+function calBuildRun(raw){   // raw[k]: baris [tv,kv,hv,kvis,ny,hs] per frame
+ const hbS=raw.stand.filter(r=>Number.isFinite(r[4])&&r[5]>0);
+ const hb=hbS.length>=Math.max(6,raw.stand.length*.4)?[+med(hbS.map(r=>r[4])).toFixed(2),+med(hbS.map(r=>r[5])).toFixed(2)]:null;
+ const st={};
+ for(const k of STS){
+  const X=raw[k].map(r=>{const rh=relHead({ny:r[4],hs:r[5]},hb),n=x=>Number.isFinite(x)?x:null;return[n(r[0]),r[3]>.3?n(r[1]):null,n(r[2]),n(rh[0]),n(rh[1])]});
+  const{m,s:sd}=featStats(X),stp=Math.max(1,Math.floor(X.length/24));
+  st[k]={n:X.length,m,s:sd,x:X.filter((_,i)=>i%stp===0).slice(0,24).map(r=>r.map(v=>v==null?null:+v.toFixed(3)))}}
+ st.stand.hb=hb;
+ return{id:Date.now(),t:Date.now(),st}}
+function pairDist(A,B){let d=0,w=0;for(let i=0;i<5;i++){if(A.m[i]==null||B.m[i]==null)continue;const sd=Math.max(A.s[i]||0,B.s[i]||0,FL[i]);d+=FW[i]*((A.m[i]-B.m[i])/sd)**2;w+=FW[i]}return w>=1?Math.sqrt(d/w):0}
+function runScore(r,others){   // skor 0..1: keterpisahan antar-posisi, kestabilan, dan kecocokan dengan kalibrasi lain
+ let mn=1e9;for(let i=0;i<4;i++)for(let j=i+1;j<4;j++)mn=Math.min(mn,pairDist(r.st[STS[i]],r.st[STS[j]]));
+ const sep=Math.max(0,Math.min(1,(mn-1.5)/4.5));
+ const rs=[];for(const k of STS)r.st[k].s.forEach((x,i)=>{if(x!=null)rs.push(x/FL[i])});
+ const stab=rs.length?Math.max(0,Math.min(1,1-(med(rs)-1)/3)):0;
+ let a=0,n=0;for(const o of others)for(const k of STS)for(const x of(o.st[k].x||[])){const[b,bd]=clsX(x,r.st);a+=b===k?1:0;n++}
+ const cons=n?a/n:null,q=cons==null?.65*sep+.35*stab:.35*sep+.2*stab+.45*cons;
+ return{q:+q.toFixed(3),sep,stab,cons}}
+function poolRuns(rs){   // gabungkan sampel beberapa kalibrasi terbaik (fitur relatif -> aman digabung antar-sesi)
+ const st={};
+ for(const k of STS){const X=[];for(const r of rs){const P=r.st[k];
+   if(P.x&&P.x.length)X.push(...P.x);else for(const d of[-1,0,1])X.push(P.m.map((mu,i)=>mu==null?null:mu+d*(P.s[i]||0)))}
+  const{m,s:sd}=featStats(X);
+  if(rs.length>1)for(let i=0;i<5;i++){if(m[i]==null)continue;   // variasi antar-kalibrasi (posisi duduk berubah, deteksi pinggul beda) ikut jadi toleransi
+   const ms=rs.map(r=>r.st[k].m[i]).filter(v=>v!=null);if(ms.length>1){const mu=ms.reduce((a,b)=>a+b,0)/ms.length;sd[i]=+Math.max(sd[i]||0,Math.sqrt(ms.reduce((a,b)=>a+(b-mu)**2,0)/ms.length)).toFixed(3)}}
+  st[k]={n:X.length,m,s:sd}}
+ const hbs=rs.map(r=>r.st.stand.hb).filter(Boolean);
+ return{st,hb:hbs.length?[med(hbs.map(h=>h[0])),med(hbs.map(h=>h[1]))]:null}}
+function pfAnalyze(e){   // -> {prof, sel:[id], runs:[{r,sc}]}
+ const runs=e.runs.map((r,i)=>({r,sc:runScore(r,e.runs.filter((_,j)=>j!==i))}));
+ let sel=null;
+ if(e.use&&e.use!=="auto"){const o=runs.find(o=>String(o.r.id)===String(e.use));if(o)sel=[o]}
+ if(!sel){const nl=runs.filter(o=>!o.r.lg),pool=nl.length?nl:runs,so=[...pool].sort((a,b)=>b.sc.q-a.sc.q),top=so[0].sc.q;
+  sel=so.filter(o=>o.sc.q>=Math.max(.45,top*.75)).slice(0,3);if(!sel.length)sel=[so[0]]}
+ const P=sel.length===1?{st:sel[0].r.st,hb:sel[0].r.st.stand.hb||null}:poolRuns(sel.map(o=>o.r));
+ return{prof:P,sel:sel.map(o=>o.r.id),runs}}
+let pfA=null;
+const pfDate=t=>t?new Date(t).toLocaleString("id-ID",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}):"data lama";
+function pfRender(n,e){
+ const info=$("pfInfo"),box=$("pfRuns"),mode=$("pfMode"),row=mode.parentElement;
+ if(!e||!pfA){info.textContent="Tanpa profil: memakai perkiraan otomatis (kurang akurat). Lakukan kalibrasi.";box.innerHTML="";row.style.display="none";return}
+ row.style.display="";const rs=pfA.runs;
+ mode.innerHTML='<option value="auto">Otomatis (gabungan terbaik)</option>'+rs.map((o,i)=>`<option value="${o.r.id}">Hanya #${i+1} (skor ${Math.round(o.sc.q*100)})</option>`).join("");
+ mode.value=e.use!=="auto"&&rs.some(o=>String(o.r.id)===String(e.use))?String(e.use):"auto";
+ const idx=id=>rs.findIndex(o=>o.r.id===id)+1;
+ info.textContent=`Profil aktif: ${n} · ${rs.length} kalibrasi · dipakai: ${pfA.sel.map(id=>"#"+idx(id)).join(", ")}`;
+ box.innerHTML=rs.map((o,i)=>`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;padding:3px 0"><span>${pfA.sel.includes(o.r.id)?"✔":"•"} #${i+1} · ${pfDate(o.r.t)} · skor <b>${Math.round(o.sc.q*100)}</b>${o.sc.cons==null?"":" · cocok "+Math.round(o.sc.cons*100)+"%"}${o.r.lg?" · lama (tanpa data kepala)":""}</span><button data-del="${o.r.id}" style="padding:2px 10px">🗑</button></div>`).join("")}
+function pfLoad(){const all=pfAll(),n=$("pf").value,e=n&&all[n]?all[n]:null;
+ pfA=e?pfAnalyze(e):null;prof=pfA?pfA.prof:null;try{localStorage.setItem(PA_KEY,n)}catch{}pfRender(n,e)}
+function pfFill(act){const all=pfAll(),sel=$("pf");sel.innerHTML="";sel.add(new Option("— Tanpa profil (otomatis) —",""));
+ Object.keys(all).forEach(n=>sel.add(new Option(n,n)));sel.value=all[act]?act:"";pfLoad()}
+const CALS=[["stand","stand",4],["ruku","ruku",5],["sujud","s1",7],["sit","sit",6]];   // [pose, label, detik bersiap]
+const CT={id:{ready:"Siap?",wait:"Atur posisi dulu. Angkat kedua tangan (takbir) atau ucapkan mulai kalibrasi untuk memulai.",prep:"Ambil posisi…",rec:"Tahan posisi…",hold:"Tahan",again:"Badan belum terdeteksi, ulangi",fail:"Kalibrasi gagal: badan tidak terdeteksi. Pastikan seluruh badan terlihat.",done:"Kalibrasi selesai",cam:"Nyalakan kamera dulu (Start camera)",mode:"Pilih mode tampak depan dulu"},
+ en:{ready:"Ready?",wait:"Get into position first. Raise both hands (takbir) or say start calibration to begin.",prep:"Get into position…",rec:"Hold still…",hold:"Hold",again:"Body not detected, repeating",fail:"Calibration failed: body not detected. Keep your whole body in view.",done:"Calibration complete",cam:"Start the camera first",mode:"Choose front view first"}};
+const ct=()=>CT[$("lg").value]||CT.en;
+function calOpen(){if(vm!=="front"){alert(ct().mode);return}if(!run){alert(ct().cam);return}
+ $("calN").value=$("pf").value;$("calS").style.display="block";$("calR").style.display="none";$("cal").classList.add("on");document.body.classList.add("calib")}
+function calClose(){clearInterval(calTm);cal=null;$("calW").style.display="none";$("cal").classList.remove("on");document.body.classList.remove("calib")}
+function calSay(){say(FR[$("lg").value][CALS[cal.i][1]],false,null,true)}
+function calGo(){const name=$("calN").value.trim().slice(0,24);if(!name){$("calN").focus();return}
+ cal={name,i:0,ph:"wait",t0:performance.now(),S:[],raw:{},fail:0,hT:0};   // menunggu: tombol / "mulai kalibrasi" / takbir
+ $("calS").style.display="none";$("calR").style.display="block";$("calW").style.display="block";$("calWT").textContent=ct().wait;
+ say(ct().wait,false,null,true);clearInterval(calTm);calTm=setInterval(calTick,100)}
+function calBegin(){if(!cal||cal.ph!=="wait")return;cal.ph="ready";cal.t0=performance.now();$("calW").style.display="none";calSay()}
+function calTick(){if(!cal)return;const c=cal,[k,lb,prep]=CALS[c.i],T=ct(),now=performance.now(),el=(now-c.t0)/1000;
+ if(c.ph==="wait"){$("calA").textContent=T.ready;$("calB").textContent="…";$("calP").style.width="0";$("calV").textContent=fm?`tv ${f2(fm.tv)} · kv ${f2(fm.kv)} · hv ${f2(fm.hv)}`:"";return}
+ $("calA").textContent=FR[$("lg").value][lb];
+ $("calV").textContent=(c.i+1)+"/"+CALS.length+(fm?` · tv ${f2(fm.tv)} · kv ${f2(fm.kv)} · hv ${f2(fm.hv)}`:" · —");
+ if(c.ph==="ready"){$("calB").textContent=Math.max(1,Math.ceil(prep-el));$("calP").style.width="0";
+  if(el>=prep){c.ph="rec";c.t0=now;c.S=[];say(T.hold,false,null,true)}return}
+ $("calB").textContent=T.rec.replace("…","");$("calP").style.width=Math.min(100,el/3*100)+"%";
+ if(el<3)return;
+ if(c.S.length<12){c.fail++;if(c.fail>=2){calClose();alert(T.fail);return}c.ph="ready";c.t0=now;say(T.again,false,null,true);return}
+ c.raw[k]=c.S;c.i++;c.fail=0;
+ if(c.i>=CALS.length){const run=calBuildRun(c.raw),all=pfAll(),e=all[c.name]||{runs:[],use:"auto"};
+  e.runs.push(run);
+  while(e.runs.length>MAXRUN){const A=pfAnalyze({runs:e.runs,use:"auto"}).runs.filter(o=>o.r.id!==run.id).sort((a,b)=>a.sc.q-b.sc.q);e.runs=e.runs.filter(r=>r!==A[0].r)}   // buang yang skornya terendah
+  all[c.name]=e;pfSave(all);const n=c.name,q=pfAnalyze(e).runs.find(o=>o.r.id===run.id).sc.q;
+  calClose();pfFill(n);say(T.done,false,null,true);
+  if(q<.45)alert(`Skor kalibrasi ini rendah (${Math.round(q*100)}/100). Aplikasi akan memakai kalibrasi lain yang lebih baik bila ada. Coba ulangi: seluruh badan & kepala terlihat, HP tegak dan tidak bergeser, tahan tiap posisi diam.`);return}
+ c.ph="ready";c.t0=now;calSay()}
+function step(raw){
+ const p=smooth(raw),st=vm==="front"?classifyFront(p):classify(p),up=handsUp(p),qu=qunutUp(p,up);
+ $("pcDbg").textContent=`pose: ${st||"?"} · ${vm==="front"?`tv ${dbg.torso} · kv ${dbg.knee} · hv ${dbg.hv} · dy ${dbg.dy} · d ${dbg.d}`:`torso ${dbg.torso}° · knee ${dbg.knee}°`} · hands ${up?"up":"down"} (${hinfo.rise.toFixed(2)}/${hinfo.fore.toFixed(2)}) · qunut ${qMode} ${qScore.toFixed(2)}${qu?" ✔":""}`;
+ if(vm==="front"&&fb&&fm&&fm.bv&&started&&cur==="stand"&&st==="stand"){fb.tv+=(fm.tv-fb.tv)*.02;fb.kv+=(fm.kv-fb.kv)*.02}
+ if(vm==="front"&&fbh&&fm&&fm.hs>0&&started&&cur==="stand"&&st==="stand"){fbh[0]+=(fm.ny-fbh[0])*.02;fbh[1]+=(fm.hs-fbh[1])*.02}
+ if(cal){if(cal.ph==="wait"){const now=performance.now();if(up){if(!cal.hT)cal.hT=now;else if(now-cal.hT>1000)calBegin()}else cal.hT=0}   // takbir = mulai kalibrasi (tanpa Voice cmd)
+  else if(cal.ph==="rec"&&fm)cal.S.push([fm.tv,fm.kv,fm.hv,fm.kvis,fm.ny,fm.hs]);return p}   // saat kalibrasi, jangan jalankan deteksi sholat
+ const yw=vm==="front"?yawOf(p):null;$("pcDbg").textContent+=" · yaw "+(yw==null?"-":yw.toFixed(2))+" · tegak "+(upr==null?"-":upr?"ya":"tidak");salamHead(st,yw);
+ watch(st,up);onFrame(st);qunut(p,up,qu);return p}
+function drawHead(g,c,p){
+ const a=p[11],b=p[12];if(!a||!b)return;
+ const e1=p[2],e2=p[5],n=p[0];let ex,ey;
+ if(vis(e1,.4)&&vis(e2,.4)){ex=(e1.x+e2.x)/2;ey=(e1.y+e2.y)/2}else if(vis(n,.4)){ex=n.x;ey=n.y-.01}else return;
+ const W=c.width,H=c.height,mx=(a.x+b.x)/2,my=(a.y+b.y)/2;
+ const dx=(ex-mx)*W,dy=(ey-my)*H,h=Math.hypot(dx,dy);if(h<8)return;
+ const ang=Math.atan2(dy,dx)+Math.PI/2;                       // sumbu leher-kepala (ikut miring)
+ g.save();g.strokeStyle=yDir?"#7be0a8":"#e0b84c";g.fillStyle=g.strokeStyle;g.lineWidth=4;
+ g.beginPath();g.ellipse(ex*W,ey*H,h*.42,h*.56,ang,0,Math.PI*2);g.stroke();   // kepala
+ const ux=dx/h,uy=dy/h;g.beginPath();g.moveTo(mx*W,my*H);g.lineTo(ex*W-ux*h*.56,ey*H-uy*h*.56);g.stroke();   // leher
+ [[0,6],[2,3],[5,3],[7,3],[8,3]].forEach(([i,r])=>{const q=p[i];if(vis(q,.5)){g.beginPath();g.arc(q.x*W,q.y*H,r,0,Math.PI*2);g.fill()}});
+ g.restore()}
+const BONES=[[11,12],[11,23],[12,24],[23,24],[23,25],[25,27],[24,26],[26,28],[11,13],[13,15],[12,14],[14,16]];
+let lm,stream,facing="user",run=false,last=-1;
+function loop(){
+ if(!run)return;const v=$("v"),c=$("c");
+ if(v.readyState>=2&&v.currentTime!==last){last=v.currentTime;
+  const r=lm.detectForVideo(v,performance.now());c.width=v.videoWidth;c.height=v.videoHeight;
+  const g=c.getContext("2d");g.clearRect(0,0,c.width,c.height);const p=r.landmarks[0]?step(r.landmarks[0]):(sm=fm=null);
+  if(p){g.strokeStyle="#e0b84c";g.lineWidth=4;BONES.forEach(([i,j])=>{g.beginPath();g.moveTo(p[i].x*c.width,p[i].y*c.height);g.lineTo(p[j].x*c.width,p[j].y*c.height);g.stroke()});drawHead(g,c,p)}}
+ requestAnimationFrame(loop);
+}
+function modelOrder(){let p="full";try{if(localStorage.getItem("pc_model")==="lite")p="lite"}catch{}return p==="lite"?["lite","full"]:["full","lite"]}   // model pilihan dulu, satunya sebagai cadangan
+async function loadMP(){
+ const V=window.PC_VENDOR,CDN="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
+ if(!V){const m=await import(CDN);
+  return [m.PoseLandmarker,await m.FilesetResolver.forVisionTasks(CDN+"/wasm"),modelOrder().map(k=>({modelAssetPath:`https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_${k}/float16/1/pose_landmarker_${k}.task`}))]}
+ if(V.inline){ // everything embedded in this one file
+  const U=async(x,t)=>URL.createObjectURL(await(await fetch(`data:${t};base64,${x}`)).blob());
+  const m=await import(await U(V.js,"text/javascript"));
+  const f={wasmLoaderPath:await U(V.loader,"text/javascript"),wasmBinaryPath:await U(V.wasm,"application/wasm")};
+  const mb=new Uint8Array(await(await fetch(`data:application/octet-stream;base64,${V.model}`)).arrayBuffer());
+  return [m.PoseLandmarker,f,[{modelAssetBuffer:mb}]]}
+ const d=V.dir,m=await import(d+"/vision_bundle.js"); // local ./vendor folder (APK)
+ return [m.PoseLandmarker,{wasmLoaderPath:d+"/vision_wasm_internal.js",wasmBinaryPath:d+"/vision_wasm_internal.wasm"},modelOrder().map(k=>({modelAssetPath:d+`/pose_landmarker_${k}.task`}))]
+}
+async function start(){
+ try{
+  window.speechSynthesis&&window.SpeechSynthesisUtterance&&speechSynthesis.speak(new SpeechSynthesisUtterance("")); // unlock audio on mobile
+  $("goT").textContent="Loading…";
+  if(!lm){const [PL,f,mos]=await loadMP();let le;
+   for(const mo of mos){try{lm=await PL.createFromOptions(f,{baseOptions:mo,runningMode:"VIDEO",numPoses:1,minPoseDetectionConfidence:.4,minPosePresenceConfidence:.4,minTrackingConfidence:.4});break}catch(e){le=e}}
+   if(!lm)throw le}
+  stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:facing,width:640,height:480},audio:false});
+  $("v").srcObject=stream;await $("v").play();run=true;document.body.classList.add("cam");goLabel();loop();
+ }catch(e){goLabel();let m;
+  if(!window.isSecureContext||!navigator.mediaDevices)m="Camera blocked: this page is not on HTTPS (a local file or http://192.168… address is not allowed on Android). Upload it to an HTTPS host, e.g. Netlify or GitHub Pages.";
+  else if(e.name==="NotAllowedError")m="Camera permission denied. In Chrome tap the lock icon > Permissions > Camera > Allow. Also check Android Settings > Apps > Chrome > Permissions > Camera.";
+  else if(e.name==="NotFoundError"||e.name==="NotReadableError")m="Camera not found or used by another app. Close other apps using the camera.";
+  else m="Could not load the pose model. Check your internet connection. ("+e.message+")";
+  alert(m)}
+}
+function stop(){run=false;stream&&stream.getTracks().forEach(t=>t.stop());document.body.classList.remove("cam");goLabel();ui()}
+function reset(){pt0=ptE=0;fb=null;fbh=null;clearTimeout(backT);clearTimeout(doneT);clearTimeout(badSitT);qReset();endQ();started=false;takT=0;needLower=false;done=false;fin=false;rukuCnt=0;rak=ru=su=sujIn=0;rukuSeen=afterSecond=false;cur=cand="";warned={};ui();syncMic()}
+$("go").onclick=async()=>{if(!run){await start();ui();return}if(!started)beginPrayer()};
+$("sw").onclick=()=>{facing=facing==="user"?"environment":"user";if(run){stop();start()}};
+$("m1").onclick=()=>{rak++;ui()};$("m2").onclick=()=>{rak=Math.max(0,rak-1);ui()};
+/* ---- finish + voice command ("sholat isya") ---- */
+function finish(){standSince=0;yBase=null;yDir=0;armT=0;saveHist(true);ptE=performance.now();clearTimeout(doneT);started=false;done=false;fin=true;finT=performance.now();cur="";cand="";candN=0;endQ();
+ clearTimeout(say.t);$("warn").style.display="none";if(window.speechSynthesis)speechSynthesis.cancel();   // drop any pending reminder
+  if(remind==="err"){const g=$("lg").value;say(FR[g].fin.replace("{n}",NAMES[g][$("pr").selectedIndex]||"").replace(/[✔✓]/g,"").trim(),false,null,true)}   // "Sholat … Selesai" diucapkan hanya setelah salam terakhir
+  ui();syncMic()}
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const NAMES={id:["Subuh","Zuhur","Asar","Magrib","Isya","Sunah"],en:["Fajr","Dhuhr","Asr","Maghrib","Isha","Sunnah"],ar:["الفجر","الظهر","العصر","المغرب","العشاء","سنة"]};
+const KEY=[["subuh","shubuh","subuhi","subu","subhu","fajr","fajar","الفجر","فجر"],
+ ["zuhur","dzuhur","zuhr","zohor","duhur","dhuhur","dzuhr","dhuhr","zhuhur","luhur","الظهر","ظهر"],
+ ["asar","ashar","assar","asr","العصر","عصر"],
+ ["magrib","maghrib","magreb","maghreb","mahrib","المغرب","مغرب"],
+ ["isya","isyak","isyah","isha","esya","esha","isa","العشاء","عشاء"],
+ ["sunah","sunnah","sunat","سنة","سنه"]];
+let rec=null,micWanted=false,micOn=false,lastSel=0;
+const TRG=["sholat","shalat","salat","solat","salah","salaat","prayer","صلاة","الصلاة","صلاه","الصلاه"];   // saat sholat berlangsung, perintah harus diawali kata ini
+function isSalam(t){   // "Assalamu\'alaikum warahmatullah": harus ada "alaikum" (tahiyat sendiri hanya berisi "alayka/alayna")
+ const c=t.toLowerCase().replace(/[^\p{L}]/gu,"");
+ return(c.includes("salam")||c.includes("slam")||c.includes("سلام"))&&/(alaikum|alaykum|alekum|alaikom|aleykum|عليكم)/.test(c)}
+function parseCmd(t,strict){   // "Isya", "sholat isya", "ganti ke sholat Zuhur" ... the prayer word is optional; the last name spoken wins
+ const w=t.toLowerCase().replace(/['’`ʼ]/g,"").split(/[^\p{L}]+/u).filter(Boolean);
+ if(strict&&!w.some(x=>TRG.includes(x)))return-1;
+ let best=-1,pos=-1;
+ KEY.forEach((ks,i)=>w.forEach((x,j)=>{if(ks.includes(x)&&j>=pos){pos=j;best=i}}));
+ return best}
+function fillPr(){const k=Math.max(0,$("pr").selectedIndex),g=$("lg").value,R=[2,4,4,3,4,2];
+ $("pr").innerHTML=NAMES[g].map((n,i)=>`<option value="${R[i]}">${n} (${R[i]})</option>`).join("");$("pr").selectedIndex=k}
+let lastIdx=-1;
+function selectPrayer(i){
+ const now=performance.now();if(i===lastIdx&&now-lastSel<4000)return;lastSel=now;lastIdx=i;   // ignore the app's own voice echo / interim repeats
+ $("pr").selectedIndex=i;reset();showPage("set");$("pn").classList.add("flash");setTimeout(()=>$("pn").classList.remove("flash"),1500);const g=$("lg").value,n=NAMES[g][i];
+ say(g==="id"?`${n}, ${target()} rakaat`:g==="en"?`${n} selected, ${target()} rak'ah`:`${n}، ${target()}`,false,null,true)}
+function startRec(){
+ rec=new SR();rec.lang=L().lang;rec.continuous=true;rec.interimResults=true;rec.maxAlternatives=3;
+ rec.onresult=e=>{for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];
+   if(cal&&cal.ph==="wait"){let c=false;for(let a=0;a<r.length&&!c;a++)c=/kalibras|calibrat|معاير/i.test(r[a].transcript);if(c){calBegin();continue}}
+  if(r.isFinal)$("log").innerHTML=`${new Date().toLocaleTimeString()} 🎤 ${r[0].transcript}<br>`+$("log").innerHTML;
+  if(started&&done){let sl=false;for(let a=0;a<r.length&&!sl;a++)sl=isSalam(r[a].transcript);if(sl){finish();continue}}   // salam di tahiyat akhir = sholat selesai
+  let k=-1;for(let a=0;a<r.length&&k<0;a++)k=parseCmd(r[a].transcript,started);   // also try the alternative transcripts
+  if(k>=0)selectPrayer(k)}};
+ rec.onerror=e=>{if(e.error==="not-allowed"||e.error==="service-not-allowed"){micWanted=false;micOn=false;$("pcMic").textContent="🎤 Voice cmd: off";alert("Microphone permission denied or speech service unavailable. Allow Microphone for this app (Android Settings > Apps > SholatGuard > Permissions).")}};
+ rec.onend=()=>{if(micOn)setTimeout(()=>{if(micOn){try{rec.start()}catch{}}},250)};
+ try{rec.start();micOn=true}catch{}}
+function stopRec(){micOn=false;try{rec.stop()}catch{}}
+function syncMic(){const want=micWanted&&!!SR;if(want&&!micOn)startRec();else if(!want&&micOn)stopRec()}
+$("pcMic").onclick=()=>{
+ if(!SR){alert("Voice commands need Chrome (Android or desktop) with internet. Not supported on this device.");return}
+ micWanted=!micWanted;$("pcMic").textContent="🎤 Voice cmd: "+(micWanted?"on":"off");syncMic()};
+$("lg").onchange=()=>{fillPr();ui();fillVoices();if(micOn){stopRec();setTimeout(syncMic,400)}};
+$("rs").onclick=()=>{if(started)saveHist(false);reset();stop()};$("pr").onchange=reset;
+const RM={id:["Pengingat setiap gerakan","Pengingat hanya saat salah"],en:["Reminder on every movement","Reminder only on mistakes"],ar:["تنبيه لكل حركة","تنبيه عند الخطأ فقط"]};
+$("vg").value=vg;$("vg").onchange=()=>{vg=$("vg").value;try{localStorage.setItem("pc_vg",vg)}catch{};fillVoices();fillArVoices();say(L().stand,false,null,true)};
+$("vs").onchange=()=>{const pre=L().lang.slice(0,2);if($("vs").value)vv[pre]=$("vs").value;else delete vv[pre];try{localStorage.setItem("pc_vv",JSON.stringify(vv))}catch{};fillVoices();fillArVoices();say(L().start,false,null,true)};
+$("vsq").onchange=()=>{if($("vsq").value)vv.ar=$("vsq").value;else delete vv.ar;try{localStorage.setItem("pc_vv",JSON.stringify(vv))}catch{};fillVoices();fillArVoices();
+ if(window.speechSynthesis){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance("اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ");u.lang="ar-SA";u.rate=.85;applyVoice(u);speechSynthesis.speak(u)}};
+try{if(window.speechSynthesis){if(speechSynthesis.addEventListener)speechSynthesis.addEventListener("voiceschanged",()=>{fillVoices();fillArVoices()});else speechSynthesis.onvoiceschanged=()=>{fillVoices();fillArVoices()}}}catch{}
+if(window.sgOpenTts){$("vsCfg").style.display="";$("vsCfg").onclick=()=>window.sgOpenTts()}
+fillVoices();fillArVoices();
+$("rm").value=remind;
+$("rm").onchange=()=>{remind=$("rm").value;try{localStorage.setItem("pc_rm",remind)}catch{};say(RM[$("lg").value][remind==="err"?1:0],false,null,true)};
+$("pcSens").value=sens;$("pcSensVal").textContent=sens;
+$("pcSens").oninput=()=>{sens=+$("pcSens").value;$("pcSensVal").textContent=sens;try{localStorage.setItem("pc_sens",sens)}catch{}};
+{let act="";try{act=localStorage.getItem(PA_KEY)||""}catch{}pfFill(act)}
+$("pf").onchange=pfLoad;$("pfCal").onclick=calOpen;$("calGo").onclick=calGo;$("calStart").onclick=calBegin;$("calX").onclick=calClose;$("calX2").onclick=calClose;
+$("pfDel").onclick=()=>{const n=$("pf").value;if(!n||!confirm(`Hapus profil "${n}" beserta semua kalibrasinya?`))return;const a=pfAll();delete a[n];pfSave(a);pfFill("")};
+$("pfMode").onchange=()=>{const n=$("pf").value,a=pfAll();if(!a[n])return;a[n].use=$("pfMode").value;pfSave(a);pfLoad()};
+$("pfRuns").onclick=ev=>{const b=ev.target.closest("[data-del]");if(!b)return;const n=$("pf").value,a=pfAll();if(!a[n]||!confirm("Hapus kalibrasi ini?"))return;
+ a[n].runs=a[n].runs.filter(r=>String(r.id)!==b.dataset.del);if(!a[n].runs.length)delete a[n];else a[n].use="auto";pfSave(a);pfFill(a[n]?n:"")};
+try{$("mdl").value=localStorage.getItem("pc_model")==="lite"?"lite":"full"}catch{}
+$("mdl").onchange=()=>{try{localStorage.setItem("pc_model",$("mdl").value)}catch{}alert("Model pose diganti. Tutup lalu buka ulang aplikasi agar berlaku.")};
+const HK="pc_hist";
+function histGet(){try{return JSON.parse(localStorage.getItem(HK)||"[]")}catch{return[]}}
+function saveHist(ok){if(saved||!pt0)return;saved=true;
+ const e={t:Date.now(),n:NAMES.id[Math.max(0,$("pr").selectedIndex)],r:rak,tg:target(),d:Math.round(((ptE||performance.now())-pt0)/1000),w:wc,ok};
+ try{const a=histGet();a.unshift(e);localStorage.setItem(HK,JSON.stringify(a.slice(0,100)))}catch{}}
+function renderHist(){const a=histGet(),el=$("hList");
+ $("hSum").textContent=a.length?`${a.length} salat tercatat · ${a.filter(x=>x.ok).length} lengkap`:"";
+ if(!a.length){el.innerHTML='<div class="empty">Belum ada riwayat salat.</div>';return}
+ el.innerHTML=a.map(e=>{const d=new Date(e.t),m=Math.floor(e.d/60),s=String(e.d%60).padStart(2,"0");
+  return `<div class="hi"><div><b>${e.n}</b><span>${d.toLocaleDateString("id-ID",{weekday:"short",day:"numeric",month:"short"})} · ${d.toLocaleTimeString("id-ID",{hour:"2-digit",minute:"2-digit"})}</span></div><div class="hr"><b>${e.r}/${e.tg}</b><span>${m}:${s}${e.w?" · ⚠"+e.w:""}${e.ok?"":" · belum lengkap"}</span></div></div>`}).join("")}
+$("hClr").onclick=()=>{if(confirm("Hapus semua riwayat?")){try{localStorage.removeItem(HK)}catch{}renderHist()}};
+document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>showPage(b.dataset.t));$("mn").onclick=()=>showPage("profile");
+function applyVm(){document.body.classList.toggle("front",vm==="front");ui()}
+$("vm").value=vm;if(vm==="front")facing="user";   // tampak depan: layar menghadap pengguna = kamera depan
+$("vm").onchange=()=>{vm=$("vm").value;try{localStorage.setItem("pc_vm",vm)}catch{};facing=vm==="front"?"user":"environment";reset();applyVm();if(run){stop();start()}};
+const TH="pc_theme";let thm="auto";try{thm=localStorage.getItem(TH)||"auto"}catch{}
+const mq=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null;
+function applyTheme(){const d=thm==="dark"||(thm==="auto"&&mq&&mq.matches);document.documentElement.dataset.theme=d?"dark":"light";
+ const m=document.querySelector('meta[name=theme-color]');if(m)m.content=d?"#1a4d41":"#8dd2b7";$("th").value=thm}
+function setTheme(v){thm=v;try{localStorage.setItem(TH,v)}catch{}applyTheme()}
+if(mq&&mq.addEventListener)mq.addEventListener("change",()=>{if(thm==="auto")applyTheme()});
+$("th").onchange=()=>setTheme($("th").value);
+$("thb").onclick=()=>setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark");
+applyTheme();
+applyVm();showPage("today");setInterval(tick,1000);
+</script></body></html>

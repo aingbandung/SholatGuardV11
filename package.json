@@ -1,0 +1,19 @@
+{
+  "name": "sholatguard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SholatGuard - APK wrapper (Capacitor)",
+  "scripts": {
+    "vendor": "bash scripts/fetch-vendor.sh"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor-community/speech-recognition": "^6.0.1",
+    "@capacitor-community/text-to-speech": "^5.1.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.2.0"
+  }
+}

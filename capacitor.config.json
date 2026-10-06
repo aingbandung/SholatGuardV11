@@ -1,0 +1,9 @@
+{
+  "appId": "com.firdaus.sholatguard",
+  "appName": "SholatGuard",
+  "webDir": "www",
+  "backgroundColor": "#e6f1fa",
+  "android": {
+    "allowMixedContent": false
+  }
+}
